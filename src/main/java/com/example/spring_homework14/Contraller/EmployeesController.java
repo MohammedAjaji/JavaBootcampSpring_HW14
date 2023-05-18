@@ -74,7 +74,7 @@ public class EmployeesController {
             employees.get(index).setAnnualLeave( employees.get(index).getAnnualLeave() - 1);
             return ResponseEntity.status(400).body(new ApiResponse("Employee already on leave"));
         }
-        if (employees.get(index).getAnnualLeave() > employee.getAnnualLeave()){
+        if (employees.get(index).getAnnualLeave() >= employee.getAnnualLeave()){
             employees.get(index).setAnnualLeave( employees.get(index).getAnnualLeave() - employee.getAnnualLeave());
             employees.get(index).setOnLeave(true);
             return ResponseEntity.status(200).body(new ApiResponse("Employee can go do a leave"));
